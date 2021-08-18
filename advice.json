@@ -1,0 +1,134 @@
+{
+	"//" : "Copyright 2018 Atos SE and Worldline",
+	"//" : "Licensed under MIT (https://github.com/atosorigin/DevOpsMaturityAssessment/blob/master/LICENSE)",
+	
+	"Gestión del cambio" : {
+		"Advice" : "A great place to start is by reading the reading the Google SRE guides and books",
+		"Links" : [
+			{
+				"Type" : "Website",
+				"Text" : "Google SRE Fundamentals",
+				"Href" : "https://cloud.google.com/blog/products/gcp/sre-fundamentals-slis-slas-and-slos"
+			},
+			{
+				"Type" : "Video",
+				"Text" : "SLIs, SLOs, SLAs, oh my! (class SRE implements DevOps)",
+				"Href" : "https://www.youtube.com/watch?v=tEylFyxbDLE"
+			},
+			{
+				"Type" : "Book",
+				"Text" : "Site Reliability Engineering by Betsy Beyer et al",
+				"Href" : "https://www.amazon.co.uk/Site-Reliability-Engineering-Betsy-Beyer/dp/149192912X",
+				"Paid" : "Yes"
+			}
+		]
+	},
+	"SLx , Error Budget,Toil" : {
+		"Advice" : "A great place to start is by reading the reading the Google SRE guides and books",
+		"Links" : [
+			{
+				"Type" : "Website",
+				"Text" : "Google SRE Fundamentals",
+				"Href" : "https://cloud.google.com/blog/products/gcp/sre-fundamentals-slis-slas-and-slos"
+			}
+		]
+	},
+	"Revisión Post incidente" : {
+		"Advice" : "Alerting",
+		"Links" : [
+			{
+				"Type" : "Book",
+				"Text" : "Web Operations by John Allspaw and Jesse Robbins, (Chapter 6)",
+				"Href" : "https://www.amazon.co.uk/Web-Operations-Keeping-Data-Time/dp/1449377440"
+			}
+		]
+	},
+	"Diseño y prevención" : {
+		"Advice" : "A \"Designed-for-Operability\" approach implies that operability features need to be designed into the Architecture of the application.  The right architectural decisions can make requirmenents like availability and redundancy easy or hard to implement. ",
+		"Links" : [
+			{
+				"Type" : "Website",
+				"Text" : "Azure Cloud Design Principles",
+				"Href" : "https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "AWS Well-Architected Framework",
+				"Href" : "https://aws.amazon.com/architecture/well-architected/"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "12-Factor App",
+				"Href" : "https://12factor.net/"
+			},
+			{
+				"Type" : "Book",
+				"Text" : "Site Reliability Engineering by Betsy Beyer et al",
+				"Href" : "https://www.amazon.co.uk/Site-Reliability-Engineering-Betsy-Beyer/dp/149192912X",
+				"Paid" : "Yes"
+			}
+		]
+	},
+	"Observabilidad" : {
+		"Advice" : "Monitoring aka \"observability\" is the key foundation to great ops - the more information you have about your applications the faster you can find what's wrong, or about to go wrong, and prevent it or fix it.",
+		"Links" : [
+			{
+				"Type" : "Book",
+				"Text" : "The Practice of Cloud System Administration: DevOps and SRE Practices for Web Services by Thomas A. Limoncelli, Strata R. Chalup and Christina J. Hogan (Chapter 16 and 17)",
+				"Href" : "https://www.amazon.com/Practice-Cloud-System-Administration-Practices/dp/032194318X/",
+				"Paid" : "Yes"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "Azure Monitoring",
+				"Href" : "https://docs.microsoft.com/en-us/azure/azure-monitor/overview"
+			},	
+			{
+				"Type" : "Website",
+				"Text" : "Azure Monitoring Best Practices",
+				"Href" : "https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "AWS CloudWatch",
+				"Href" : "https://aws.amazon.com/cloudwatch/"
+			},
+			{
+				"Type" : "Book",
+				"Text" : "Web Operations by John Allspaw and Jesse Robbins, (Chapter 6)",
+				"Href" : "https://www.amazon.co.uk/Web-Operations-Keeping-Data-Time/dp/1449377440"
+			}
+		]
+	},
+	"Respuesta a incidentes" : {
+		"Advice" : "Despite what some people might think, the need for good documentation hasn't gone away. High level architecture diagrams, well-written repo READMEs, runbooks and playbooks (along with other forms of documentation) can help reduce toil, reduce MTTR and improve availability.",
+		"Links" : [
+			{
+				"Type" : "Blog",
+				"Text" : "Minimum Viable Runbook by VictorOps",
+				"Href" : "https://victorops.com/blog/minimum-viable-runbook-part-one"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "AWS Playbook Guidance",
+				"Href" : "https://wa.aws.amazon.com/wat.concept.playbook.en.html"
+			},
+			{
+				"Type" : "Website",
+				"Text" : "AWS Runbook Guidance",
+				"Href" : "https://wa.aws.amazon.com/wat.concept.runbook.en.html"
+			},
+			{
+				"Type" : "Video",
+				"Text" : "DevOpsChat: Containerisation for DevOps with Miska Kaipiainen (00:19)",
+				"Href" : "https://www.youtube.com/watch?v=8mR4q-roSHk"
+			},
+			{
+				"Type" : "Blog",
+				"Text" : "DevOps automation best practices: How much is too much? by David Linthicum",
+				"Href" : "https://techbeacon.com/devops/devops-automation-best-practices-how-much-too-much"
+			}
+		]
+	}
+
+}
