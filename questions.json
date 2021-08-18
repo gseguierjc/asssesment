@@ -64,7 +64,7 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "¿Utiliza las técnicas como Canary o Blue / Green para reducir el tiempo de inactividad y el riesgo?",
+				"QuestionText" : "¿Utiliza las estrategias  de despliegue como Canary o Blue / Green, etc. para reducir el tiempo de inactividad y el riesgo?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
@@ -96,7 +96,7 @@
 		"SpiderPos" : 2,
 		"Questions" : [
 			{
-				"Type" : "Checkbox",
+				"Type" : "Option",
 				"QuestionText" : "¿El equipo utiliza herramientas de monitoreo y logs para poder determinar el comportamiento de la aplicación?",
 				"Answers" : [
 						{"Answer" : "Si, pero sólo cuando hay incidente críticos", "Score" : 0.5},
@@ -117,7 +117,7 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "¿Conoce el rendimiento máximo que puede manejar con la arquitectura actual?",
+				"QuestionText" : "¿Conoce el rendimiento máximo que puede soportar con la arquitectura actual?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
@@ -128,7 +128,8 @@
 				
 				"QuestionText" : "¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "Si, y es automático", "Score" : 0.75},
+					{"Answer" : "Si, pero es manual", "Score" : 0.25},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
@@ -141,6 +142,16 @@
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
+			{
+				"Type" : "Option",
+				
+				"QuestionText" : "La infraestructura de la aplicación es :",
+				"Answers" : [
+					{"Answer" : "Cloud", "Score" : 0.75},
+					{"Answer" : "Híbrido", "Score" : 0.25},
+					{"Answer" : "OnPremise", "Score" : 0}
+					]
+			},
 			
 			{
 				"Type" : "Checkbox",
@@ -149,7 +160,7 @@
 				"Answers" : [
 					{"Answer" : "La función del servidor backend deja de operar", "Score" : 0.5},
 					{"Answer" : "El clúster se desconecta", "Score" : 0.5},
-					{"Answer" : "Terminar o reiniciar sin afectar a los clientes o usuarios", "Score" : 0.75},
+					{"Answer" : "Terminar o reiniciar sin afectar (HA) a los clientes o usuarios", "Score" : 0.75},
 					{"Answer" : "Load balancing, rate-limiting, timeout, retry and error handling behaviour,", "Score" : 0.75},
 					{"Answer" : "La ubicación deja de estar disponible", "Score" : 0.25},
 					{"Answer" : "La región deja de estar disponible", "Score" : 0.25}
@@ -164,6 +175,65 @@
 					{"Answer" : "Architecture", "Score" : 0.25},
 					{"Answer" : "Monitoreo", "Score" : 0.5},
 					{"Answer" : "Networking", "Score" : 0.5}
+					]
+			}
+		]
+	},
+	{
+		"SectionName" : "Respuesta a incidentes",
+		"SpiderPos" : 4,
+		"Questions" : [
+			{
+				"Type" : "Option",
+				"QuestionText" : "El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
+				"Answers" : [
+					{"Answer" : "Es obtenido manualmente en un periodo de tiempo", "Score" : 0.25},
+					{"Answer" : "Es obtenido automaticamente y es visible para todo el equipo", "Score" : 0.75},
+					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0}
+					]
+			},			
+			{
+				"Type" : "Option",
+				"QuestionText" : "De acuerdo al tipo de incidente, es posible determinar el equipo de personas que asume la responsabilidad de la solución de ésta.",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.25},
+					{"Answer" : "No", "Score" : 0}
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Cómo se asegura de que las personas que responden a los incidentes tengan toda la información necesaria a su disposición para solucionar un incidente?",
+				"Answers" : [
+					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
+					{"Answer" : "Existe un proceso definido que contempla documentación,accesos y vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
+					{"Answer" : "No es posible tener toda la información necesaria para la solución de incidentes.", "Score" : 0}					
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Ha considerado qué información debe estar fácilmente disponible y mostrarse en sus paneles de control para no proporcionar demasiada información que puede ser difícil de evaluar de un vistazo?",
+				"Answers" : [
+					{"Answer" : "Si, y ha sido definido previamente con los equipos que realizan el monitoreo de componentes", "Score" : 0.5},
+					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
+					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "De qué forma se realiza la trazabilidad del incidente",
+				"Answers" : [
+					{"Answer" : "Aplicación de runbooks - Establecer acciones desde un chatbot", "Score" : 1},
+					{"Answer" : "Aplicación de runbooks - Establecer acciones en alguna plataforma", "Score" : 0.75},
+					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
+					{"Answer" : "No se realiza trazabilidad", "Score" : 0}			
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Automaticamente los responsables son asignados para la resolución de un incidente",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}			
 					]
 			}
 		]
@@ -234,55 +304,7 @@
 		]
 	}
 	,
-	{
-		"SectionName" : "Respuesta a incidentes",
-		"SpiderPos" : 4,
-		"Questions" : [
-			{
-				"Type" : "Option",
-				"QuestionText" : "El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
-				"Answers" : [
-					{"Answer" : "Es obtenido manualmente en un periodo de tiempo", "Score" : 0.25},
-					{"Answer" : "Es obtenido automaticamente y es visible para todo el equipo", "Score" : 0.75},
-					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0}
-					]
-			},			
-			{
-				"Type" : "Option",
-				"QuestionText" : "De acuerdo al tipo de incidente, es posible determinar el equipo que asume la responsabilidad de la solución de ésta. ",
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.25},
-					{"Answer" : "No", "Score" : 0}
-					]
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "¿Cómo se asegura de que las personas que responden a los incidentes tengan toda la información necesaria a su disposición para solucionar un incidente?",
-				"Answers" : [
-					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
-					{"Answer" : "Existe un proceso definido que contempla documentación,accesos y vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
-					{"Answer" : "No es posible tener toda la información necesaria para la solución de incidentes.", "Score" : 0}					
-					]
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "¿Ha considerado qué información debe estar fácilmente disponible y mostrarse en sus paneles de control para no proporcionar demasiada información que puede ser difícil de evaluar de un vistazo?",
-				"Answers" : [
-					{"Answer" : "Si, y ha sido definido previamente con los equipos que realizan el monitoreo de componentes", "Score" : 0.5},
-					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
-					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
-					]
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "Automaticamente los responsables son asignados para la resolución de un incidente",
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}			
-					]
-			}
-		]
-	},
+
 	{
 		"SectionName" : "SLx , Error Budget,Toil",
 		"SpiderPos" : 5,
@@ -344,7 +366,7 @@
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "Los indicadores poseen alertas de advertencia que correlaciona automaticamente una posible incidencia",
+				"QuestionText" : "Los indicadores SLI poseen alertas de advertencia que correlaciona automaticamente una posible incidencia",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
@@ -378,7 +400,7 @@
 			},
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "¿El monitoreo del código está implementado y es efectivo?",
+				"QuestionText" : "¿El monitoreo del código está implementado?",
 				"Answers": [
 					{"Answer" : "Monitoreo de CPU, Memoria y capacidad de disco", "Score" : 0.25},
 					{"Answer" : "Monitoreo de transacciones sintéticas: pruebas artificiales automatizadas implementadas para medir el rendimiento", "Score" : 1},
@@ -390,10 +412,43 @@
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "¿La instrumentación eficaz de errores y rendimiento está integrada en el código de su servicio de forma estándar?",
+				"QuestionText" : "Se tiene implementado alguna herramienta que permita la gestión de logs de forma centralizada",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.5},
 					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Los sistemas  manejan un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL).",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Los sistemas  manejan un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL).",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Se cuenta con algún tipo de estructura y formato de salida que permita el entendimiento y análisis de logs (log4j - json)",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Cual de los siguientes es un escenario de uso  es valido para registro de logs en su aplicación.",
+				"Answers" : [
+					{"Answer" : "Logs de eventos que tienen lugar durante la ejecución de un sistema para proporcionar un diagnostico", "Score" : 0.25},
+					{"Answer" : "Logs de eventos ocurridos en el sistema con largos periodos de retención para auditorias", "Score" : 0.5}
+					{"Answer" : "Logs de eventos para explotación de data a través de sistemas de aprendizaje automático", "Score" : 1}
 					]	
 			},
 			{
@@ -450,10 +505,11 @@
 				"Type" : "Option",
 				"QuestionText" : "El tiempo de detección de un incidente (MTTD) es en promedio",
 				"Answers" : [
-					{"Answer" : "20 min", "Score" : 1},
-					{"Answer" : "45 min", "Score" : 0.75},
-					{"Answer" : "3 hr", "Score" : 0.25},
-					{"Answer" : "6 hr", "Score" : 0}
+					{"Answer" : "5 min", "Score" : 1},
+					{"Answer" : "20 - 35 min", "Score" : 0.5},
+					{"Answer" : "1 hr", "Score" : 0.25},
+					{"Answer" : "3 hr", "Score" : 0},
+					{"Answer" : "No tenemos registro del indicador", "Score" : 0}
 					]	
 			}	
 		]
