@@ -35,44 +35,62 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "1.¿Su proceso de implementación / despliegue está automatizado?",
+				"QuestionText" : "¿Su proceso de implementación - Despliegue está automatizado?",
 				"Answers" : [
-					{"Answer" : "No está automatizado", "Score" : 0},
-					{"Answer" : "Parcialmente automatizado", "Score" : 0.25},
-					{"Answer" : "Completamente automatizado sin rollback", "Score" : 0.5},
+					{"Answer" : "Completamente automatizado e incluye el proceso automático de rollback", "Score" : 1},
 					{"Answer" : "Completamente automatizado e incluye el proceso manual de rollback", "Score" : 0.75},
-					{"Answer" : "Completamente automatizado e incluye el proceso automático de rollback", "Score" : 0.1}
+					{"Answer" : "Completamente automatizado sin rollback", "Score" : 0.5},
+					{"Answer" : "Parcialmente automatizado", "Score" : 0.25},
+					{"Answer" : "No está automatizado", "Score" : 0.25}
 					]
 			},	
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "2.¿Puede implementar cambios sin una ventana de mantenimiento ya que no se requiere una interrupción?",
+				"QuestionText" : "¿Puede implementar cambios sin una ventana de mantenimiento ya que no se requiere una interrupción?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.5},
-					{"Answer" : "En algunas ocasiones se genera indisponibilidad", "Score" : 0.25},
-					{"Answer" : "No, Siempre necesitamos ventana de mantenimiento", "Score" : 0}
+					{"Answer" : "No", "Score" : 0}
 					]
 			},		
 
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "3.¿Utiliza las estrategias de despliegue como Canary o Blue / Green, etc. para reducir el tiempo de inactividad y el riesgo?",
+				"QuestionText" : "¿Están las herramientas y el proceso de implementación documentados y disponibles para todas las personas que los necesitarán?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "Si", "Score" : 0.25},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "4.¿Usa Features Flags para minimizar el riego de los despliegues?",
+				"QuestionText" : "¿Utiliza las estrategias  de despliegue como Canary o Blue / Green, etc. para reducir el tiempo de inactividad y el riesgo?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+					]
+			},
+						{
+				"Type" : "Option",
+				
+				"QuestionText" : "¿Usa Features Flags para minimizar el riego?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
 					]
+			},
+			{
+				"Type" : "Option",
+				
+				"QuestionText" : "¿A/B testing es usado como estrategia de despliegue?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+					]
 			}
+
 		]
 	},
 	{
@@ -81,19 +99,38 @@
 		"Questions" : [
 			{
 				"Type" : "Option",
-				"QuestionText" : "5. La infraestructura de la aplicación es:",
+				"QuestionText" : "¿El equipo utiliza herramientas de monitoreo y logs para poder determinar el comportamiento de la aplicación?",
 				"Answers" : [
-						{"Answer" : "Cloud", "Score" : 0.75},
-						{"Answer" : "Híbrido", "Score" : 0.5},
-						{"Answer" : "OnPremise", "Score" : 0.25}
+						{"Answer" : "Si, pero sólo cuando hay incidente críticos", "Score" : 0.5},
+						{"Answer" : "Si, antes de que un incidente se produzca", "Score" : 0.75},
+						{"Answer" : "Si, pero dependo de otro equipo y sólo cuando hay incidentes críticos", "Score" : 0.25},
+						{"Answer" : "No, no poseeo herramientas", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "6.¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
+				"QuestionText" : "¿Sabe dónde están los límites máximos de su rendimiento antes de que su servicio entre en funcionamiento? p Ej. Ejecutó pruebas de stress, pruebas de carga.",
 				"Answers" : [
-					{"Answer" : "Si y es automático", "Score" : 0.75},
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+					]
+			},
+			{
+				"Type" : "Option",
+				
+				"QuestionText" : "¿Conoce el rendimiento máximo que puede soportar con la arquitectura actual?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}
+					]
+			},
+			{
+				"Type" : "Option",
+				
+				"QuestionText" : "¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
+				"Answers" : [
+					{"Answer" : "Si, y es automático", "Score" : 0.75},
 					{"Answer" : "Si, pero es manual", "Score" : 0.25},
 					{"Answer" : "No", "Score" : 0}
 					]
@@ -101,23 +138,45 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "7.¿Chaos Engineering es una práctica que hemos implementado en nuestra aplicación?",
+				"QuestionText" : "¿Chaos Engineering es una práctica que conocemos y hemos implementado en nuestra aplicación?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
 			{
+				"Type" : "Option",
+				
+				"QuestionText" : "La infraestructura de la aplicación es :",
+				"Answers" : [
+					{"Answer" : "Cloud", "Score" : 0.75},
+					{"Answer" : "Híbrido", "Score" : 0.25},
+					{"Answer" : "OnPremise", "Score" : 0}
+					]
+			},
+			
+			{
 				"Type" : "Checkbox",
 				
-				"QuestionText" : "8.En la arquitectura de su aplicación, ¿ha implementado alguna forma de tolerancia a fallos? ",
+				"QuestionText" : "Al considerar la arquitectura de su aplicación, ¿ha implementado mitigación para los siguientes escenarios de falla? La mitigación podría incluir cualquier forma de alta disponibilidad, escalado, el uso de contenedores, arquitectura sin servidor u otra tecnología de mitigación ",
 				"Answers" : [
-					{"Answer" : "No", "Score" : 0},
-					{"Answer" : "HA y/o LB  para BD", "Score" : 0.25},
-					{"Answer" : "HA y/o LB  para Backend (incluye Middleware)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Componentes de Red (DNS, Proxy, AD, Firewall)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Frontend", "Score" : 0.75},
-					{"Answer" : "Toda la aplicación con replicas por Zona o Región, sin afectar a los clientes o usuarios", "Score" : 1}
+					{"Answer" : "La función del servidor backend deja de operar", "Score" : 0.5},
+					{"Answer" : "El clúster se desconecta", "Score" : 0.5},
+					{"Answer" : "Terminar o reiniciar sin afectar (HA) a los clientes o usuarios", "Score" : 0.75},
+					{"Answer" : "Load balancing, rate-limiting, timeout, retry and error handling behaviour,", "Score" : 0.75},
+					{"Answer" : "La ubicación deja de estar disponible", "Score" : 0.25},
+					{"Answer" : "La región deja de estar disponible", "Score" : 0.25}
+					]
+			},
+			{
+				"Type" : "Checkbox",
+				
+				"QuestionText" : "¿Utiliza la mejora continua en alguna de las siguientes áreas?",
+				"Answers" : [
+					{"Answer" : "Codigo - revisión de pares", "Score" : 0.25},
+					{"Answer" : "Architecture", "Score" : 0.25},
+					{"Answer" : "Monitoreo", "Score" : 0.5},
+					{"Answer" : "Networking", "Score" : 0.5}
 					]
 			}
 		]
@@ -125,46 +184,31 @@
 	{
 		"SectionName" : "Respuesta a incidentes",
 		"SpiderPos" : 4,
-		"Questions" : [	
+		"Questions" : [
 			{
 				"Type" : "Option",
-				
-				"QuestionText" : "9.El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
+				"QuestionText" : "El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
 				"Answers" : [
-					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0},
-					{"Answer" : "Si y es obtenido manualmente", "Score" : 0.25},
-					{"Answer" : "Si y es obtenido automáticamente", "Score" : 0.75}
-					]
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "10.¿Las personas que responden a los incidentes, ejecutan acciones definidas en un proceso y tienen todas las herramientas necesarias a su disposición para solucionar el incidente?",
-				"Answers" : [
-					{"Answer" : "Existe un proceso definido que es ejecutado parcialmente por el equipo, y no existe herramientas para apoyar en la solución", "Score" : 0},
-					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
-					{"Answer" : "Existe un proceso definido que contempla documentación, accesos a vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
-					{"Answer" : "Existe un proceso definido que correlaciona automáticamente una incidencia con un equipo, se poseen accesos a documentación y vistas que ayudan a la rápida identificación de incidentes, está disponible para todos los roles", "Score" : 1}
+					{"Answer" : "Es obtenido manualmente en un periodo de tiempo", "Score" : 0.25},
+					{"Answer" : "Es obtenido automaticamente y es visible para todo el equipo", "Score" : 0.75},
+					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0}
 					]
 			},			
 			{
 				"Type" : "Option",
-				"QuestionText" : "11.¿Ha considerado qué paneles con información de monitoreo deben estar fácilmente disponible, accesible y puedan ayudar a analizar alguna anomalía fácilmente de un vistazo?",
+				"QuestionText" : "De acuerdo al tipo de incidente, es posible determinar el equipo de personas que asume la responsabilidad de la solución de ésta.",
 				"Answers" : [
-					{"Answer" : "No, no se posee paneles de control/dashboardos de monitoreo", "Score" : 0},
-					{"Answer" : "Si, existen paneles de control básicos (CPU, Ram, Discos)", "Score" : 0.25},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para ciertos roles en el equipo", "Score" : 0.5},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para todos roles en el equipo", "Score" : 0.75},	
-					{"Answer" : "Si y el PO y sus miembros de equipo administran los paneles de forma conveniente dentro de la herramienta de monitoreo", "Score" : 0.1}	
-				]
+					{"Answer" : "Si", "Score" : 0.25},
+					{"Answer" : "No", "Score" : 0}
+					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "12.De qué forma se realiza la trazabilidad del incidente",
+				"QuestionText" : "¿Cómo se asegura de que las personas que responden a los incidentes tengan toda la información necesaria a su disposición para solucionar un incidente?",
 				"Answers" : [
-					{"Answer" : "No se realiza trazabilidad", "Score" : 0},
-					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
-					{"Answer" : "Aplicación de bitácora - Establecer acciones en alguna plataforma", "Score" : 0.75},					
-					{"Answer" : "Aplicación de bitácora - Establecer acciones desde un chatbot", "Score" : 1}					
+					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
+					{"Answer" : "Existe un proceso definido que contempla documentación,accesos y vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
+					{"Answer" : "No es posible tener toda la información necesaria para la solución de incidentes.", "Score" : 0}					
 					]
 			},
 			{
@@ -175,6 +219,24 @@
 					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
 					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
 					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "De qué forma se realiza la trazabilidad del incidente",
+				"Answers" : [
+					{"Answer" : "Aplicación de runbooks - Establecer acciones desde un chatbot", "Score" : 1},
+					{"Answer" : "Aplicación de runbooks - Establecer acciones en alguna plataforma", "Score" : 0.75},
+					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
+					{"Answer" : "No se realiza trazabilidad", "Score" : 0}			
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Automaticamente los responsables son asignados para la resolución de un incidente",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}			
+					]
 			}
 		]
 	},
@@ -184,7 +246,7 @@
 		"Questions" : [
 			{
 				"Type" : "Option",
-				"QuestionText" : "13.Sólo los incidentes críticos desencadenan una reunión de revisión post incidente",	
+				"QuestionText" : "Sólo los incidentes críticos desencadenan una reunión de revisión post incidente",	
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.25},
 					{"Answer" : "No se realiza ningún tipo de reunión de revisión", "Score" : 0}
@@ -192,15 +254,50 @@
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "14.Se mantiene una trazabilidad entre incidente y fix aplicado",	
+				"QuestionText" : "Luego del incidente, se tiene una reunión para determinar la responsabilidad individual del mismo. ",	
 				"Answers" : [
-					{"Answer" : "Si, existe registro del fix y su atención", "Score" : 0.75},
+					{"Answer" : "Si", "Score" : 0},
+					{"Answer" : "Las reuniones estan orientadas a identificar el equipo responsable", "Score" : 0.25},
+					{"Answer" : "No se realiza ningún tipo de reunión de revisión de responsabilidad", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Se identifica el incidente encontrando puntualmente el error y sólo se aplica la acción correctiva.",	
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.25},
+					{"Answer" : "No, se identifica el incidente y se mejoran procesos internos", "Score" : 0.75}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Existe un comité que permite mejorar el proceso interno a raiz de un incidente",	
+				"Answers" : [
+					{"Answer" : "Si, permite mejorar los procesos internos y la aplicación", "Score" : 0.75},
+					{"Answer" : "Si, pero sólo permite mejorar los procesos internos", "Score" : 0.5},
+					{"Answer" : "Si, pero sólo permite mejorar la aplicación", "Score" : 0.25},
+					{"Answer" : "No existe un comité o reunión", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Se mantiene una trazabilidad entre incidente y mejora aplicada.",	
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
 					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "15.Se utiliza una herramienta tipo IA para aprender de los incidentes ocurridos con anterioridad y que permita mejorar la estabilidad de la aplicación",	
+				"QuestionText" : "Se utiliza una herramienta de aprendizaje automático que permita mejorar la aplicación y los procesos internos continuamente.",	
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Se aplica lo aprendido constantemente en la aplicación",	
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
@@ -215,42 +312,77 @@
 		"SpiderPos" : 5,
 		"Questions" : [
 			{
+				"Type" : "Option",
+				"QuestionText" : "Con qué frecuencia se generá indisponibilidad que tiene que ser atendida por el equipo.",
+				"Answers" : [
+					{"Answer" : "3 veces por semana", "Score" : 0},
+					{"Answer" : "2 veces cada quince dias", "Score" : 0.5},
+					{"Answer" : "1 vez al mes", "Score" : 0.75}
+					]					
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Conoce sobre los acuerdos de nivel de servicio (SLA) de la aplicación?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.25},
+					{"Answer" : "No", "Score" : 0}
+					]		
+			},	
+			{
 				"Type" : "Checkbox",
-				"QuestionText" : "16.Las herramientas de monitoreo nos proveen data histórica e indicadores que nos permiten conocer el comportamiento de la aplicación, p Ej.  Disponibilidad de la aplicación de los últimos 3 meses. ",
+				"QuestionText" : "Las herramientas de monitoreo nos proveen data historica e indicadores que nos permiten conocer el comportamiento de la aplicación, p Ej.  Disponibilidad de la aplicación de los últimos 3 meses. ",
 				"Answers" : [
 					{"Answer" : "Disponibilidad", "Score" : 0.25},
 					{"Answer" : "Errores", "Score" : 0.5},
 					{"Answer" : "Peticiones (requests) realizadas con éxito", "Score" : 0.5},
 					{"Answer" : "No existe data historica", "Score" : 0}
-					]					
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "17.El freeze (Cuando no se permiten pases a producción) de una aplicación es determinado automáticamente",
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
-					{"Answer" : "No", "Score" : 0}
 					]		
 			},	
 			{
 				"Type" : "Option",
-				"QuestionText" : "18.El monitoreo actual de la aplicación posee alertas de advertencia que correlaciona ",
+				"QuestionText" : "La data hitorica como monitoreo, errores, logs es visible por :",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "1 semana", "Score" : 0},
+					{"Answer" : "15 dias", "Score" : 0.25},
+					{"Answer" : "1 mes", "Score" : 0.5},
+					{"Answer" : "3 meses", "Score" : 1},
+					{"Answer" : "6 meses", "Score" : 1}
 					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "19.Respecto de los SLI (Service Level Indicator) y SLO (Service Level Objetive) para mi aplicación:",
+				"QuestionText" : "El freeze y unfreeze de una aplicación es determinado automaticamente",
 				"Answers" : [
-					{"Answer" : "No los conocemos", "Score" : 0},
-					{"Answer" : "Conozco la teoría, pero no los usamos", "Score" : 0.25},
-					{"Answer" : "Estamos midiendo algunos SLI (Disponibilidad, latencia, errores )", "Score" : 0.5},
-					{"Answer" : "Estamos midiendo SLI (Disponibilidad, latencia, errores, APDEX) y tenemos seteados algunos SLO", "Score" : 0.75},
-					{"Answer" : "Ambos están definidos y medidos para todos los servicios", "Score" : 1}
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+				]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "El trabajo no planificado frente a una incidencia",
+				"Answers" : [
+					{"Answer" : ">40%", "Score" : 0},
+					{"Answer" : "<30%", "Score" : 0.75},
+					{"Answer" : "<20%", "Score" : 1}
+				]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Los indicadores SLI poseen alertas de advertencia que correlaciona automaticamente una posible incidencia",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}
+				]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Todos los componentes del servicio tiene una configuración que nos permite conocer su comportamiento mediante indicadores.",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
 				]
 			}
+
 		]
 	},
 	
@@ -260,39 +392,70 @@
 		"Questions" : [
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "20.Los equipos de desarrollo tienen accesos a las herramientas de monitoreo para:",
+				"QuestionText" : "¿Se faculta / anima / apoya a los Desarrolladores para que creen el monitoreo como parte de las características del servicio central en entornos de producción y no producción con las mismas herramientas?",
 				"Answers" : [
-					{"Answer" : "Solo ver los paneles de control y dashboards, que alguien más ha creado", "Score" : 0},
-					{"Answer" : "Crear algunos Paneles y Dashboards", "Score" : 0.5},
-					{"Answer" : "Crear todos sus Paneles y Dashboards", "Score" : 0.75},
-					{"Answer" : "Crear todos sus Paneles y Dashboards. Configurar sus alertas y SLIs/SLOs", "Score" : 1}
+					{"Answer" : "Pueden crear paneles", "Score" : 0.75},
+					{"Answer" : "Contruyen Dashboards", "Score" : 0.25},
+					{"Answer" : "Proporciona a operaciones una visión temprana de lo que pasa en producción", "Score" : 0.5},
+					{"Answer" : "Retroalimentación cercana: el personal de operaciones puede permitir que los desarrolladores vean cómo funciona su software", "Score" : 0.75}
 					]	
 			},
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "21.El monitoreo de mi aplicación comprende lo siguiente: ",
+				"QuestionText" : "¿El monitoreo del código está implementado?",
 				"Answers": [
 					{"Answer" : "Monitoreo de CPU, Memoria y capacidad de disco", "Score" : 0.25},
-					{"Answer" : "Las métricas con tendencia ascendente o descendente son visibles y se alertan cuando son críticas", "Score" : 0.5},
+					{"Answer" : "Monitoreo de transacciones sintéticas: pruebas artificiales automatizadas implementadas para medir el rendimiento", "Score" : 1},
 					{"Answer" : "Herramientas implementadas para APM (Application Performance Monitoring)", "Score" : 0.5},
-					{"Answer" : "Browser Analytics & Real User Monitoring), ", "Score" : 0.75},
-					{"Answer" : "Synthetic Transaction Monitoring: pruebas artificiales automatizadas implementadas para medir el rendimiento y satisfacción", "Score" : 1}
+					{"Answer" : "Visibilidad del rendimiento de la aplicación internamente, p. Ej. ¿Cuánto tardan las llamadas a los recursos?", "Score" : 0.75},
+					{"Answer" : "Las métricas con tendencia ascendente o descendente son visibles y se alertan cuando son críticas", "Score" : 0.5},
+					{"Answer" : "Las herramientas indican qué parte de la aplicación está generando el mayor número de errores", "Score" : 0.75}	
 				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "22.Cuáles son las características del registro de logs en su aplicación:",
+				"QuestionText" : "Se tiene implementado alguna herramienta que permita la gestión de logs de forma centralizada",
 				"Answers" : [
-					{"Answer" : "Logs de eventos sin un esquema de criticidad, no proporciona un diagnóstico rápido", "Score" : 0},
-					{"Answer" : "Logs de eventos con largos periodos de retención para auditorias, proporciona un diagnostico moderado", "Score" : 0.25},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL)", "Score" : 0.5},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro y centralizado (Kibana, ElasticSearch,Logstash)", "Score" : 0.75},	
-					{"Answer" : "Logs de eventos para explotación de data a través de sistemas de aprendizaje automático", "Score" : 1}
-				]	
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "23.¿Utiliza la supervisión proactiva de las bases de datos para señalar problemas antes de que afecten a un servicio? Ejemplo: obtengo información sobre querys o planes de ejecución de bajo rendimiento",
+				"QuestionText" : "Los sistemas  manejan un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL).",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Los sistemas  manejan un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL).",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Se cuenta con algún tipo de estructura y formato de salida que permita el entendimiento y análisis de logs (log4j - json)",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "Cual de los siguientes es un escenario de uso  es valido para registro de logs en su aplicación.",
+				"Answers" : [
+					{"Answer" : "Logs de eventos que tienen lugar durante la ejecución de un sistema para proporcionar un diagnostico", "Score" : 0.25},
+					{"Answer" : "Logs de eventos ocurridos en el sistema con largos periodos de retención para auditorias", "Score" : 0.5},
+					{"Answer" : "Logs de eventos para explotación de data a través de sistemas de aprendizaje automático", "Score" : 1}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Utiliza la supervisión proactiva de las bases de datos para señalar problemas antes de que afecten a un servicio? P.ej. ¿Para proporcionar información sobre consultas o planes de bajo rendimiento?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.25},
 					{"Answer" : "No", "Score" : 0}
@@ -300,7 +463,49 @@
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "24.El tiempo de detección de un incidente (MTTD)  desde que se alerta el incidente es en promedio",
+				"QuestionText" : "¿Tiene visibilidad y puede realizar un seguimiento de los cambios en la configuración de cada componente de su servicio? Instrumentación de cada capa de la aplicación",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Se ha asegurado de que sus soluciones de logs sean eficaces para la auditoría y el cumplimiento?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.5},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Checkbox",
+				"QuestionText" : "¿Todos los equipos, incluidos todos los desarrolladores, tienen al menos acceso de lectura al monitoreo?",
+				"Answers" : [
+					{"Answer" : "Insight (Dashboards & Visualización)", "Score" : 0.5},
+					{"Answer" : "Cliente (Browser Analytics & Real User Monitoring)", "Score" : 0.75},
+					{"Answer" : "Código (Synthetic Transaction Monitoring, Application Performance Monitoring & Log Analytics", "Score" : 0.5},
+					{"Answer" : "Core (Services & Infrastructure)", "Score" : 0.5}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Sus registros contienen niveles de gravedad de eventos (informativos, de advertencia, críticos) y usan marcas de tiempo consistentes en todos los componentes? p Ej. Si la latencia de la aplicación supera >2 segundos envía una alerta de advertencia al equipo. Si supera los >4 segundos genera un incidente crítico.",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "¿Es fácil correlacionar eventos transaccionales entre los componentes de su servicio? Por ejemplo, ¿tiene una vista de un extremo a otro del flujo de datos o del journey del usuario?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			},	
+			{
+				"Type" : "Option",
+				"QuestionText" : "El tiempo de detección de un incidente (MTTD) es en promedio",
 				"Answers" : [
 					{"Answer" : "5 min", "Score" : 1},
 					{"Answer" : "20 - 35 min", "Score" : 0.5},
@@ -308,7 +513,7 @@
 					{"Answer" : "3 hr", "Score" : 0},
 					{"Answer" : "No tenemos registro del indicador", "Score" : 0}
 					]	
-			}
+			}	
 		]
 	}
 ]	
