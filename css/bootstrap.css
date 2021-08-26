@@ -1829,7 +1829,7 @@ fieldset:disabled a.btn {
   pointer-events: none; }
 
 .btn-primary {
-  color: #3984B4;
+  color: #DDDDDD;
   background-color: #ff7800;
   border-color: #ff7800; }
   .btn-primary:hover {
