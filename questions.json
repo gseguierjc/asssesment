@@ -20,8 +20,9 @@
 				"QuestionText" : "Rol de quien responderá el cuestionario",
 				"Answers" : [
 					{"Answer" : "Product Owner", "Score" : 0},
-					{"Answer" : "Líder técnico", "Score" : 0},
-					{"Answer" : "Product Owner", "Score" : 0},
+					{"Answer" : "Chapter Lead", "Score" : 0},
+					{"Answer" : "Technical Lead", "Score" : 0},
+					{"Answer" : "Team Member", "Score" : 0},
 					{"Answer" : "Sponsor", "Score" : 0}
 				]
 			}
