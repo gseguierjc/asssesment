@@ -39,7 +39,7 @@
 		<div class="row text-center">
 			<div class="col-12">
 				<h1>Mejora constantemente</h1>
-				<p class="lead pb-4">Este cuestionario le ayudará a comprender sus puntos fuertes y débiles actuales con respecto a una cultura resiliente. Le recomendará recursos que pueden ayudarle a dar los siguientes pasos en su viaje de mejora a una cultura resiliente.</p>
+				<p class="lead pb-4">Este cuestionario le ayudará a comprender sus puntos fuertes y débiles actuales con respecto a una cultura resiliente. Le recomendará recursos que pueden ayudarle a dar los siguientes pasos en su viaje de mejora.</p>
 				<a href="<?='section-' . SectionNameToURLName($survey->sections[0]['SectionName'])?>" class="btn btn-primary mr-0 mr-sm-2">Comenzar el cuestionario</a>
 				<!-- <a href="https://github.com/devopsguys/production-readiness-review" target="_blank" class="btn btn-outline-light mt-3 mt-sm-0">Fork us on GitHub</a> -->
 			</div>
