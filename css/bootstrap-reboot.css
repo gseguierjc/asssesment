@@ -27,7 +27,7 @@ body {
   line-height: 1.5;
   color: #fff;
   text-align: left;
-  background-color: #0268A9; }
+  background-color: #3984B4; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -105,7 +105,7 @@ a {
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #637f14;
+    color: #135890;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
