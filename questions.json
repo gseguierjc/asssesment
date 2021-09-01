@@ -35,7 +35,7 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "1.¿Su proceso de implementación / despliegue está automatizado?",
+				"QuestionText" : "1.¿Su proceso de implementación / despliegue (CI/CD) está automatizado?",
 				"Answers" : [
 					{"Answer" : "No está automatizado", "Score" : 0},
 					{"Answer" : "Parcialmente automatizado", "Score" : 0.25},
@@ -67,7 +67,7 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "4.¿Usa Features Flags para minimizar el riego de los despliegues?",
+				"QuestionText" : "4.¿Usa Features Flags (Activación/Desactivación de funcionalidades) para minimizar el riego de los despliegues?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
@@ -83,18 +83,19 @@
 				"Type" : "Option",
 				"QuestionText" : "5. La infraestructura de la aplicación es:",
 				"Answers" : [
-						{"Answer" : "Cloud", "Score" : 0.75},
-						{"Answer" : "Híbrido", "Score" : 0.5},
-						{"Answer" : "OnPremise", "Score" : 0.25}
+					{"Answer" : "OnPremise", "Score" : 0.25},	
+					{"Answer" : "Cloud", "Score" : 0.75},
+					{"Answer" : "Híbrido", "Score" : 0.5}
+						
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "6.¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
+				"QuestionText" : "6.¿Calcula el rendimiento del servicio (pruebas de stress) para que su escalado opere de una manera óptima?",
 				"Answers" : [
-					{"Answer" : "Si y es automático", "Score" : 0.75},
-					{"Answer" : "Si, pero es manual", "Score" : 0.25},
+					{"Answer" : "Si y el escalado es automático", "Score" : 0.75},
+					{"Answer" : "Si, pero el escalado es manual", "Score" : 0.25},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
@@ -112,7 +113,6 @@
 				
 				"QuestionText" : "8.En la arquitectura de su aplicación, ¿ha implementado alguna forma de tolerancia a fallos? ",
 				"Answers" : [
-					{"Answer" : "No", "Score" : 0},
 					{"Answer" : "HA y/o LB  para BD", "Score" : 0.25},
 					{"Answer" : "HA y/o LB  para Backend (incluye Middleware)", "Score" : 0.5},
 					{"Answer" : "HA y/o LB  para Componentes de Red (DNS, Proxy, AD, Firewall)", "Score" : 0.5},
@@ -165,15 +165,6 @@
 					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
 					{"Answer" : "Aplicación de bitácora - Establecer acciones en alguna plataforma", "Score" : 0.75},					
 					{"Answer" : "Aplicación de bitácora - Establecer acciones desde un chatbot", "Score" : 1}					
-					]
-			},
-			{
-				"Type" : "Option",
-				"QuestionText" : "¿Ha considerado qué información debe estar fácilmente disponible y mostrarse en sus paneles de control para no proporcionar demasiada información que puede ser difícil de evaluar de un vistazo?",
-				"Answers" : [
-					{"Answer" : "Si, y ha sido definido previamente con los equipos que realizan el monitoreo de componentes", "Score" : 0.5},
-					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
-					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
 					]
 			}
 		]
@@ -234,7 +225,7 @@
 			},	
 			{
 				"Type" : "Option",
-				"QuestionText" : "18.El monitoreo actual de la aplicación posee alertas de advertencia que correlaciona ",
+				"QuestionText" : "18.El monitoreo actual de la aplicación posee alertas de advertencia que correlaciona automáticamente una posible incidencia",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 0.75},
 					{"Answer" : "No", "Score" : 0}
@@ -259,7 +250,7 @@
 		"SpiderPos" : 6,
 		"Questions" : [
 			{
-				"Type" : "Checkbox",
+				"Type" : "Option",
 				"QuestionText" : "20.Los equipos de desarrollo tienen accesos a las herramientas de monitoreo para:",
 				"Answers" : [
 					{"Answer" : "Solo ver los paneles de control y dashboards, que alguien más ha creado", "Score" : 0},
