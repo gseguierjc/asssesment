@@ -6,7 +6,7 @@
 		"Questions" : [
 			{
 				"Type" : "Banner",
-				"QuestionText" : "El objetivo de este cuestionario es ayudarle a evaluar la madurez  de su servicio y ayudarle a entender cuáles podrían ser los próximos pasos apropiados para usted.<br><br>Estas preguntas están pensadas para ser completadas por un equipo (normalmente reportando al mismo PO / LT)."
+				"QuestionText" : "El objetivo de este cuestionario es evaluar el nivel de madurez de devops (CI/CD) para la Aplicación.Estas preguntas deben ser evaluadas en consenso si la App tiene más de un LT."
 			},
 			{
 				"Type" : "Text",
@@ -23,42 +23,39 @@
 					{"Answer" : "Chapter Lead", "Score" : 0},
 					{"Answer" : "Technical Lead", "Score" : 0},
 					{"Answer" : "Team Member", "Score" : 0},
-					{"Answer" : "Sponsor", "Score" : 0}
+					{"Answer" : "Sponsor", "Score" : 0},
+					{"Answer" : "Lider Técnico", "Score" : 0}
 				]
 			}
 		]
 	},
 	{
-		"SectionName" : "Gestión del cambio",
+		"SectionName" : "Grupo 1",
 		"SpiderPos" : 1,
 		"Questions" : [
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "1.¿Su proceso de implementación / despliegue está automatizado?",
+				"QuestionText" : "1.¿Utilizan bitbucket como versionador de código fuente  para App distribuidas? y/o Endevor para App Mainframe?",
 				"Answers" : [
-					{"Answer" : "No está automatizado", "Score" : 0},
-					{"Answer" : "Parcialmente automatizado", "Score" : 0.25},
-					{"Answer" : "Completamente automatizado sin rollback", "Score" : 0.5},
-					{"Answer" : "Completamente automatizado e incluye el proceso manual de rollback", "Score" : 0.75},
-					{"Answer" : "Completamente automatizado e incluye el proceso automático de rollback", "Score" : 0.1}
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
 					]
 			},	
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "2.¿Puede implementar cambios sin una ventana de mantenimiento ya que no se requiere una interrupción?",
+				"QuestionText" : "2.¿Almacenan exclusivamente  código fuente en bitbcuket y/o Endevor para App Mainframe?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.5},
-					{"Answer" : "En algunas ocasiones se genera indisponibilidad", "Score" : 0.25},
-					{"Answer" : "No, Siempre necesitamos ventana de mantenimiento", "Score" : 0}
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
 					]
 			},		
 
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "3.¿Utiliza las estrategias de despliegue como Canary o Blue / Green, etc. para reducir el tiempo de inactividad y el riesgo?",
+				"QuestionText" : "3.¿Utilizas Gitflow BCP?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
@@ -67,119 +64,111 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "4.¿Usa Features Flags para minimizar el riego de los despliegues?",
+				"QuestionText" : "4.¿Utilizan Jenkins como herramienta de integración continua (uso Pipelines)?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
+					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 					]
 			}
 		]
 	},
 	{
-		"SectionName" : "Diseño y prevención",
+		"SectionName" : "Grupo 2",
 		"SpiderPos" : 2,
 		"Questions" : [
 			{
 				"Type" : "Option",
-				"QuestionText" : "5. La infraestructura de la aplicación es:",
+				"QuestionText" : "5.¿Cuál es la frecuencia de las integraciones de código (Commits en Bitbucket)?",
 				"Answers" : [
-						{"Answer" : "Cloud", "Score" : 0.75},
-						{"Answer" : "Híbrido", "Score" : 0.5},
-						{"Answer" : "OnPremise", "Score" : 0.25}
+						{"Answer" : "Diario", "Score" : 3},
+						{"Answer" : "Semanal", "Score" : 2},
+						{"Answer" : "Mensual", "Score" : 1},
+						{"Answer" : "Anual", "Score" : 0},
+						{"Answer" : "Nunca", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "6.¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
+				"QuestionText" : "6.¿Realizan builds automáticos con jobs tipo pipeline de Jenkins en toda la aplicación?",
 				"Answers" : [
-					{"Answer" : "Si y es automático", "Score" : 0.75},
-					{"Answer" : "Si, pero es manual", "Score" : 0.25},
+				
+					{"Answer" : "Si", "Score" : 2},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "7.¿Chaos Engineering es una práctica que hemos implementado en nuestra aplicación?",
+				"QuestionText" : "7.¿Utilizan el pipeline de Integración Continua diario (Generar Builds, pruebas Unitarias, Sonarqube)?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 					]
 			},
 			{
-				"Type" : "Checkbox",
+				"Type" : "Option",
 				
-				"QuestionText" : "8.En la arquitectura de su aplicación, ¿ha implementado alguna forma de tolerancia a fallos? ",
+				"QuestionText" : "8.¿Utilizan el pipeline de Integración Continua por commit (Generar Builds, pruebas Unitarias)?",
 				"Answers" : [
-					{"Answer" : "No", "Score" : 0},
-					{"Answer" : "HA y/o LB  para BD", "Score" : 0.25},
-					{"Answer" : "HA y/o LB  para Backend (incluye Middleware)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Componentes de Red (DNS, Proxy, AD, Firewall)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Frontend", "Score" : 0.75},
-					{"Answer" : "Toda la aplicación con replicas por Zona o Región, sin afectar a los clientes o usuarios", "Score" : 1}
-					]
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+				]
 			}
 		]
 	},
 	{
-		"SectionName" : "Respuesta a incidentes",
+		"SectionName" : "Grupo 3",
 		"SpiderPos" : 4,
 		"Questions" : [	
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "9.El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
+				"QuestionText" : "9.¿Ejecutan pruebas unitarias desde jenkins?",
 				"Answers" : [
-					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0},
-					{"Answer" : "Si y es obtenido manualmente", "Score" : 0.25},
-					{"Answer" : "Si y es obtenido automáticamente", "Score" : 0.75}
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "10.¿Las personas que responden a los incidentes, ejecutan acciones definidas en un proceso y tienen todas las herramientas necesarias a su disposición para solucionar el incidente?",
+				"QuestionText" : "10.¿Utilizan Artifactory como único gestor de versionado y almacenamiento de artefactos y librerías para App distribuidas? y/o Endevor para App Mainframe?",
 				"Answers" : [
-					{"Answer" : "Existe un proceso definido que es ejecutado parcialmente por el equipo, y no existe herramientas para apoyar en la solución", "Score" : 0},
-					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
-					{"Answer" : "Existe un proceso definido que contempla documentación, accesos a vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
-					{"Answer" : "Existe un proceso definido que correlaciona automáticamente una incidencia con un equipo, se poseen accesos a documentación y vistas que ayudan a la rápida identificación de incidentes, está disponible para todos los roles", "Score" : 1}
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
 					]
 			},			
 			{
 				"Type" : "Option",
-				"QuestionText" : "11.¿Ha considerado qué paneles con información de monitoreo deben estar fácilmente disponible, accesible y puedan ayudar a analizar alguna anomalía fácilmente de un vistazo?",
+				"QuestionText" : "11.¿Realizan análisis estático con Sonarqube cada vez que realizan un build (en todos los despliegues de tu aplicación)?",
 				"Answers" : [
-					{"Answer" : "No, no se posee paneles de control/dashboardos de monitoreo", "Score" : 0},
-					{"Answer" : "Si, existen paneles de control básicos (CPU, Ram, Discos)", "Score" : 0.25},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para ciertos roles en el equipo", "Score" : 0.5},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para todos roles en el equipo", "Score" : 0.75},	
-					{"Answer" : "Si y el PO y sus miembros de equipo administran los paneles de forma conveniente dentro de la herramienta de monitoreo", "Score" : 0.1}	
+					{"Answer" : "Siempre ", "Score" : 1},
+					{"Answer" : "A veces", "Score" : 0},
+					{"Answer" : "No", "Score" : 0}	
 				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "12.De qué forma se realiza la trazabilidad del incidente",
+				"QuestionText" : "12.¿El equipo se basa en los resultados de Sonarqube para mejorar la deuda técnica de la aplicación (Calidad del código al ejecutar el pipeline)?",
 				"Answers" : [
-					{"Answer" : "No se realiza trazabilidad", "Score" : 0},
-					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
-					{"Answer" : "Aplicación de bitácora - Establecer acciones en alguna plataforma", "Score" : 0.75},					
-					{"Answer" : "Aplicación de bitácora - Establecer acciones desde un chatbot", "Score" : 1}					
+					{"Answer" : "SI, siempre (Son bloqueantes)", "Score" : 1},
+					{"Answer" : "SI, siempre (No son bloqueantes) ", "Score" : 0},
+					{"Answer" : "No", "Score" : 0}					
 					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "¿Ha considerado qué información debe estar fácilmente disponible y mostrarse en sus paneles de control para no proporcionar demasiada información que puede ser difícil de evaluar de un vistazo?",
+				"QuestionText" : "13.¿Utilizan las alertas automáticas configuradas en los pipelines desde Jenkins para monitorear los resultados de los builds? (Ej: Correos al término de cada etapa,alertas de cada stage dentro de la interfaz web de jenkins, Logs de Inicio, fin, error de un pipeline)",
 				"Answers" : [
-					{"Answer" : "Si, y ha sido definido previamente con los equipos que realizan el monitoreo de componentes", "Score" : 0.5},
-					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
-					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
+					{"Answer" : "Sí (100% de builds de la aplicación)", "Score" : 1},
+					{"Answer" : "Parcialmente  (Algunos builds)", "Score" : 0},
+					{"Answer" : "No", "Score" : 0}					
 					]
 			}
 		]
 	},
 	{
-		"SectionName" : "Revisión Post incidente",
+		"SectionName" : "Grupo 4",
 		"SpiderPos" :3,
 		"Questions" : [
 			{
@@ -192,17 +181,18 @@
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "14.Se mantiene una trazabilidad entre incidente y fix aplicado",	
+				"QuestionText" : "14.¿El equipo logró optimizar o reducir los tiempos de despliegue del build de su aplicación con el uso de la herramienta de automatización jenkins?",	
 				"Answers" : [
-					{"Answer" : "Si, existe registro del fix y su atención", "Score" : 0.75},
+					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "15.Se utiliza una herramienta tipo IA para aprender de los incidentes ocurridos con anterioridad y que permita mejorar la estabilidad de la aplicación",	
+				"QuestionText" : "15.¿Realizan verificación de métricas y feedback con un dashboard 360 de Integración continua (builds, pruebas unitarias, cobertura, etc.)?",	
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "Si", "Score" : 2},
+					{"Answer" : "Parcialmente (Se cuenta con dashboard básico) ", "Score" : 0},
 					{"Answer" : "No", "Score" : 0}
 					]	
 			}
@@ -211,102 +201,172 @@
 	,
 
 	{
-		"SectionName" : "SLx , Error Budget,Toil",
+		"SectionName" : "Grupo 5",
 		"SpiderPos" : 5,
 		"Questions" : [
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "16.Las herramientas de monitoreo nos proveen data histórica e indicadores que nos permiten conocer el comportamiento de la aplicación, p Ej.  Disponibilidad de la aplicación de los últimos 3 meses. ",
+				"QuestionText" : "16.¿Todo el equipo tiene visibilidad de los resultados de los builds (salud de los builds en jenkins)?",
 				"Answers" : [
-					{"Answer" : "Disponibilidad", "Score" : 0.25},
-					{"Answer" : "Errores", "Score" : 0.5},
-					{"Answer" : "Peticiones (requests) realizadas con éxito", "Score" : 0.5},
-					{"Answer" : "No existe data historica", "Score" : 0}
+					{"Answer" : "Sí (Todo el equipo)", "Score" : 1},
+					{"Answer" : "Parcialmente (Más del 50% de los casos) ", "Score" : 0},
+					{"Answer" : "No (Nunca) ", "Score" : 0}
+					
 					]					
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "17.El freeze (Cuando no se permiten pases a producción) de una aplicación es determinado automáticamente",
+				"QuestionText" : "17.¿Todo el equipo tiene visibilidad de los resultados de los builds (salud de los builds en jenkins)?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "Sí (Todo el equipo) ", "Score" : 1},
+					{"Answer" : "Parcialmente (Solo algunos miembros del equipo)", "Score" : 0},
 					{"Answer" : "No", "Score" : 0}
 					]		
 			},	
 			{
 				"Type" : "Option",
-				"QuestionText" : "18.El monitoreo actual de la aplicación posee alertas de advertencia que correlaciona ",
+				"QuestionText" : "1.¿Cuál es el porcentaje de módulos de su aplicación desplegadas automaticamente (Usando pipelines Devsecops)?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Todo está automatizado(>=80%)", "Score" : 4},
+					{"Answer" : "Muchos procesos manuales/automatizados (>30% y <80%)", "Score" : 3},
+					{"Answer" : "Algunos procesos manuales/automatizados (<30%)", "Score" : 2},
+					{"Answer" : "Todo es manual ", "Score" : 1}
 					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "19.Respecto de los SLI (Service Level Indicator) y SLO (Service Level Objetive) para mi aplicación:",
+				"QuestionText" : "2.¿Cómo se conectan a los servidores para la instalación de la aplicación durante los despliegues?",
 				"Answers" : [
-					{"Answer" : "No los conocemos", "Score" : 0},
-					{"Answer" : "Conozco la teoría, pero no los usamos", "Score" : 0.25},
-					{"Answer" : "Estamos midiendo algunos SLI (Disponibilidad, latencia, errores )", "Score" : 0.5},
-					{"Answer" : "Estamos midiendo SLI (Disponibilidad, latencia, errores, APDEX) y tenemos seteados algunos SLO", "Score" : 0.75},
-					{"Answer" : "Ambos están definidos y medidos para todos los servicios", "Score" : 1}
+					{"Answer" : "De forma manual, con usuario y password (Agile Ops solicita a COS el ingreso de credencial)2. Usuario/PSW de forma automatizada ", "Score" : 1},
+					{"Answer" : "De forma automatizada, con usuario y password, desde la bóveda de Jenkins (Previamente COS ingresa las claves, pero sólo una vez)", "Score" : 2},
+					{"Answer" : "De forma automatizada, con certificados digitales (PEM), desde la bóveda de Jenkins (Previamente el pipeline de llaves PEM genera la claves, pero sólo una vez ", "Score" : 3}
 				]
 			}
 		]
 	},
 	
 	{
-		"SectionName" : "Observabilidad",
+		"SectionName" : "Grupo 6",
 		"SpiderPos" : 6,
 		"Questions" : [
 			{
-				"Type" : "Checkbox",
-				"QuestionText" : "20.Los equipos de desarrollo tienen accesos a las herramientas de monitoreo para:",
+				"Type" : "Option",
+				"QuestionText" : "3.¿Utilizan pipelines para desplegar a certificación y producción?",
 				"Answers" : [
-					{"Answer" : "Solo ver los paneles de control y dashboards, que alguien más ha creado", "Score" : 0},
-					{"Answer" : "Crear algunos Paneles y Dashboards", "Score" : 0.5},
-					{"Answer" : "Crear todos sus Paneles y Dashboards", "Score" : 0.75},
-					{"Answer" : "Crear todos sus Paneles y Dashboards. Configurar sus alertas y SLIs/SLOs", "Score" : 1}
+					{"Answer" : "Siempre (100% de los despliegues) ", "Score" : 1},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
 					]	
 			},
 			{
-				"Type" : "Checkbox",
-				"QuestionText" : "21.El monitoreo de mi aplicación comprende lo siguiente: ",
+				"Type" : "Option",
+				"QuestionText" : "4.¿Utilizan bóveda de credenciales (Hashicorp Vault) para resguardar todos los secretos en los despliegues de la aplicación?",
 				"Answers": [
-					{"Answer" : "Monitoreo de CPU, Memoria y capacidad de disco", "Score" : 0.25},
-					{"Answer" : "Las métricas con tendencia ascendente o descendente son visibles y se alertan cuando son críticas", "Score" : 0.5},
-					{"Answer" : "Herramientas implementadas para APM (Application Performance Monitoring)", "Score" : 0.5},
-					{"Answer" : "Browser Analytics & Real User Monitoring), ", "Score" : 0.75},
-					{"Answer" : "Synthetic Transaction Monitoring: pruebas artificiales automatizadas implementadas para medir el rendimiento y satisfacción", "Score" : 1}
+					{"Answer" : "Utiliza sólo bóveda de credenciales (KV de azure, Jenkins vault,etc) para resguardar todos los secretos de despliegue de la aplicación", "Score" : 1},
+					{"Answer" : "No utiliza bóveda de credenciales para resguardar los secretos de despliegue de la aplicación (Utilizan modo tradicional con participación de COS) ", "Score" : 0}
 				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "22.Cuáles son las características del registro de logs en su aplicación:",
+				"QuestionText" : "5.¿Tienes pipelines ejecutados exitosamente produccion?",
 				"Answers" : [
-					{"Answer" : "Logs de eventos sin un esquema de criticidad, no proporciona un diagnóstico rápido", "Score" : 0},
-					{"Answer" : "Logs de eventos con largos periodos de retención para auditorias, proporciona un diagnostico moderado", "Score" : 0.25},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL)", "Score" : 0.5},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro y centralizado (Kibana, ElasticSearch,Logstash)", "Score" : 0.75},	
-					{"Answer" : "Logs de eventos para explotación de data a través de sistemas de aprendizaje automático", "Score" : 1}
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 0},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues)", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
 				]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "23.¿Utiliza la supervisión proactiva de las bases de datos para señalar problemas antes de que afecten a un servicio? Ejemplo: obtengo información sobre querys o planes de ejecución de bajo rendimiento",
+				"QuestionText" : "6.¿Utilizan Ansible ó terraform para los despliegues de la aplicación?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.25},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Sólo Ansible ó Terraform", "Score" : 2},
+					{"Answer" : "Utilizo Ansible + Terraform" , "Score" : 2},
+					{"Answer" : "Ninguno", "Score" : 0}
 					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "24.El tiempo de detección de un incidente (MTTD)  desde que se alerta el incidente es en promedio",
+				"QuestionText" : "7.¿Existe interrupción del servicio de la aplicación cuando se realiza un despliegue?",
 				"Answers" : [
-					{"Answer" : "5 min", "Score" : 1},
-					{"Answer" : "20 - 35 min", "Score" : 0.5},
-					{"Answer" : "1 hr", "Score" : 0.25},
-					{"Answer" : "3 hr", "Score" : 0},
-					{"Answer" : "No tenemos registro del indicador", "Score" : 0}
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 0},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 2}
+					
+					]	
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "8.¿Tienen dependencia de terceros en sus despliegues? Ejm: Torres IBM, Atlas, Alexandria",
+				"Answers" : [
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 0},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 2}
+					
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "9.¿Se tiene siempre una versión de software disponible en el gestor de artefactos, para desplegarla en cualquier momento?",
+				"Answers" : [
+					{"Answer" : "Todos los componentes de la aplicación ", "Score" : 1},
+					{"Answer" : "Solo una parte de la aplicación", "Score" : 0},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "10.¿Cuentan con un dashboard para monitorear el despliegue de su aplicación?",
+				"Answers" : [
+					{"Answer" : "Dashboard básico: Jenkins, cantidad de despliegues, status.", "Score" : 1},
+					{"Answer" : "Dashboard 360: Jenkins u otra tools, cantidad de despliegues, rollback, releases por aplicación, tiempos de despliegues, otros", "Score" : 2},
+					{"Answer" : "No", "Score" : 0}
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "11.¿Ejecutan reversiones automatizadas cuando el despliegue del artefacto no termina exitosamente?",
+				"Answers" : [
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 1},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "12.¿Utilizan un Release Manager para orquestar y automatizar los despliegues en todos los ambientes?",
+				"Answers" : [
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 1},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "13.¿Cuándo los miembros reciben comentarios de que el pipeline no se puede desplegar (Ej: builds o test fallidos), hacen de la solución de estos problemas su máxima prioridad?",
+				"Answers" : [
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 1},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
+					]	
+			}
+			,
+			{
+				"Type" : "Option",
+				"QuestionText" : "13.¿Su aplicación despliega con un solo click (one click deployment)?",
+				"Answers" : [
+					{"Answer" : "Si", "Score" : 1},
+					{"Answer" : "No", "Score" : 0}
+				
 					]	
 			}
 		]

@@ -69,9 +69,9 @@
 								$survey->GetQuestionScore($question)
 								);
 
-								$servername = "surveysredatabase.mysql.database.azure.com";
-								$username = "adminsre@surveysredatabase";
-								$password = "Blameless#124";
+								$servername = "surverycicd.mysql.database.azure.com";
+								$username = "surveycicd";
+								$password = "AutomationCDci123*";
 								$dbname = "survey";
 								// Create connection
 								// Create connection
