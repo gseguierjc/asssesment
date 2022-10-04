@@ -30,7 +30,7 @@
 		]
 	},
 	{
-		"SectionName" : "Grupo 1",
+		"SectionName" : "Integración Continua",
 		"SpiderPos" : 1,
 		"Questions" : [
 			{
@@ -69,13 +69,7 @@
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 					]
-			}
-		]
-	},
-	{
-		"SectionName" : "Grupo 2",
-		"SpiderPos" : 2,
-		"Questions" : [
+			},
 			{
 				"Type" : "Option",
 				"QuestionText" : "5.¿Cuál es la frecuencia de las integraciones de código (Commits en Bitbucket)?",
@@ -114,13 +108,7 @@
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 				]
-			}
-		]
-	},
-	{
-		"SectionName" : "Grupo 3",
-		"SpiderPos" : 4,
-		"Questions" : [	
+			},
 			{
 				"Type" : "Option",
 				
@@ -164,20 +152,6 @@
 					{"Answer" : "Parcialmente  (Algunos builds)", "Score" : 0},
 					{"Answer" : "No", "Score" : 0}					
 					]
-			}
-		]
-	},
-	{
-		"SectionName" : "Grupo 4",
-		"SpiderPos" :3,
-		"Questions" : [
-			{
-				"Type" : "Option",
-				"QuestionText" : "13.Sólo los incidentes críticos desencadenan una reunión de revisión post incidente",	
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.25},
-					{"Answer" : "No se realiza ningún tipo de reunión de revisión", "Score" : 0}
-					]	
 			},
 			{
 				"Type" : "Option",
@@ -195,21 +169,13 @@
 					{"Answer" : "Parcialmente (Se cuenta con dashboard básico) ", "Score" : 0},
 					{"Answer" : "No", "Score" : 0}
 					]	
-			}
-		]
-	}
-	,
-
-	{
-		"SectionName" : "Grupo 5",
-		"SpiderPos" : 5,
-		"Questions" : [
+			},
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "16.¿Todo el equipo tiene visibilidad de los resultados de los builds (salud de los builds en jenkins)?",
+				"QuestionText" : "16.¿Mantienen los builds en verde al terminar la jornada (aseguran que los builds terminen exitosamente)?",
 				"Answers" : [
-					{"Answer" : "Sí (Todo el equipo)", "Score" : 1},
-					{"Answer" : "Parcialmente (Más del 50% de los casos) ", "Score" : 0},
+					{"Answer" : "Sí (Siempre)", "Score" : 1},
+					{"Answer" : "Parcialmente (Más del 50% de los casos)", "Score" : 0},
 					{"Answer" : "No (Nunca) ", "Score" : 0}
 					
 					]					
@@ -222,15 +188,25 @@
 					{"Answer" : "Parcialmente (Solo algunos miembros del equipo)", "Score" : 0},
 					{"Answer" : "No", "Score" : 0}
 					]		
-			},	
+			}
+
+		]
+	},
+
+
+	{
+		"SectionName" : "Despliegue Continuo",
+		"SpiderPos" : 5,
+		"Questions" : [
+
 			{
 				"Type" : "Option",
-				"QuestionText" : "1.¿Cuál es el porcentaje de módulos de su aplicación desplegadas automaticamente (Usando pipelines Devsecops)?",
+				"QuestionText" : "1.¿Cuándo los miembros reciben comentarios de que el pipeline no se puede desplegar Ej: deploys o test fallidos), hacen de la solución de estos problemas su máxima prioridad?",
 				"Answers" : [
-					{"Answer" : "Todo está automatizado(>=80%)", "Score" : 4},
-					{"Answer" : "Muchos procesos manuales/automatizados (>30% y <80%)", "Score" : 3},
-					{"Answer" : "Algunos procesos manuales/automatizados (<30%)", "Score" : 2},
-					{"Answer" : "Todo es manual ", "Score" : 1}
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 1},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues)", "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
 					]
 			},
 			{
@@ -241,15 +217,7 @@
 					{"Answer" : "De forma automatizada, con usuario y password, desde la bóveda de Jenkins (Previamente COS ingresa las claves, pero sólo una vez)", "Score" : 2},
 					{"Answer" : "De forma automatizada, con certificados digitales (PEM), desde la bóveda de Jenkins (Previamente el pipeline de llaves PEM genera la claves, pero sólo una vez ", "Score" : 3}
 				]
-			}
-		]
-	},
-	
-	{
-		"SectionName" : "Grupo 6",
-		"SpiderPos" : 6,
-		"Questions" : [
-			{
+			},			{
 				"Type" : "Option",
 				"QuestionText" : "3.¿Utilizan pipelines para desplegar a certificación y producción?",
 				"Answers" : [
@@ -262,26 +230,27 @@
 				"QuestionText" : "4.¿Utilizan bóveda de credenciales (Hashicorp Vault) para resguardar todos los secretos en los despliegues de la aplicación?",
 				"Answers": [
 					{"Answer" : "Utiliza sólo bóveda de credenciales (KV de azure, Jenkins vault,etc) para resguardar todos los secretos de despliegue de la aplicación", "Score" : 1},
-					{"Answer" : "No utiliza bóveda de credenciales para resguardar los secretos de despliegue de la aplicación (Utilizan modo tradicional con participación de COS) ", "Score" : 0}
+					{"Answer" : "No utiliza bóveda de credenciales para resguardar los secretos de despliegue de la aplicación (Utilizan modo tradicional con participación de COS)", "Score" : 0}
 				]
 			},
 			{
 				"Type" : "Option",
 				"QuestionText" : "5.¿Tienes pipelines ejecutados exitosamente produccion?",
 				"Answers" : [
-					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 0},
-					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
-					{"Answer" : "A veces (30 - 50% de despliegues)", "Score" : 0},
-					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
+					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 3},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 3},
+					{"Answer" : "A veces (30 - 50% de despliegues)", "Score" : 2},
+					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 1}
 				]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "6.¿Utilizan Ansible ó terraform para los despliegues de la aplicación?",
+				"QuestionText" : "6.¿Utilizan Ansible (code) y  Terraform (infraestructura) para los despliegues de la aplicación?",
 				"Answers" : [
-					{"Answer" : "Sólo Ansible ó Terraform", "Score" : 2},
-					{"Answer" : "Utilizo Ansible + Terraform" , "Score" : 2},
-					{"Answer" : "Ninguno", "Score" : 0}
+					{"Answer" : "Siempre (100% de los despliegues) ", "Score" : 0},
+					{"Answer" : "Casi siempre (50 - 100% de despliegues)" , "Score" : 0},
+					{"Answer" : "A veces (30 - 50% de despliegues)" , "Score" : 0},
+					{"Answer" : "Nunca (0% de los despliegues) ", "Score" : 2}
 					]	
 			},
 			{
@@ -351,24 +320,26 @@
 			,
 			{
 				"Type" : "Option",
-				"QuestionText" : "13.¿Cuándo los miembros reciben comentarios de que el pipeline no se puede desplegar (Ej: builds o test fallidos), hacen de la solución de estos problemas su máxima prioridad?",
+				"QuestionText" : "13.¿Cuál es el porcentaje de automatización del despliegue de su aplicación (usando pipelines)?",
 				"Answers" : [
-					{"Answer" : "Siempre (100% de los despliegues)", "Score" : 1},
-					{"Answer" : "Casi siempre (50 - 100% de despliegues)", "Score" : 0},
-					{"Answer" : "A veces (30 - 50% de despliegues) ", "Score" : 0},
-					{"Answer" : "Nunca (0% de los despliegues)", "Score" : 0}
+					{"Answer" : "Todo está automatizado(>=80%)", "Score" : 3},
+					{"Answer" : "Muchos procesos manuales/automatizados (>30% y <80%) ", "Score" : 3},
+					{"Answer" : "Algunos procesos manuales/automatizados (<30%)", "Score" : 2},
+					{"Answer" : "Todo es manual", "Score" : 1}
 					]	
 			}
 			,
 			{
 				"Type" : "Option",
-				"QuestionText" : "13.¿Su aplicación despliega con un solo click (one click deployment)?",
+				"QuestionText" : "14.¿Su aplicación despliega con un solo click (one click deployment)?",
 				"Answers" : [
 					{"Answer" : "Si", "Score" : 1},
 					{"Answer" : "No", "Score" : 0}
 				
 					]	
 			}
+
+
 		]
 	}
 ]	
