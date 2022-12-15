@@ -2,28 +2,32 @@
 	{
 		"//" : "Copyright 2018 Atos SE and Worldline",
 		"//" : "Licensed under MIT (https://github.com/atosorigin/DevOpsMaturityAssessment/blob/master/LICENSE)",
-		"SectionName" : "Introduccion",
+		"SectionName" : "Datos Personales",
 		"Questions" : [
 			{
 				"Type" : "Banner",
-				"QuestionText" : "El objetivo de este cuestionario es ayudarle a evaluar la madurez  de su servicio y ayudarle a entender cuáles podrían ser los próximos pasos apropiados para usted.<br><br>Estas preguntas están pensadas para ser completadas por un equipo (normalmente reportando al mismo PO / LT)."
+				"QuestionText" : "EL objetivo de este cuestionario es medir el nivel de madurez con respecto a la práctica SRE y ayudarle a entender cuáles podrían ser los próximos pasos apropiados para usted.<br>"
 			},
 			{
 				"Type" : "Text",
-				"QuestionText" : "Por favor coloca el código de la aplicación. p Ej. HMBK",
+				"QuestionText" : "Ingresa tu matrícula",
 				"Answers" : [
-					{"Answer" : "GG", "Score" : 0}
+					{"Answer" : "MB", "Score" : 0}
+				]
+			},
+			{
+				"Type" : "Text",
+				"QuestionText" : "Ingresa tu correo electrónico BCP/Proveedor",
+				"Answers" : [
+					{"Answer" : "CE", "Score" : 0}
 				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "Rol de quien responderá el cuestionario",
+				"QuestionText" : "¿Has recibido alguna capacitación por parte de Acelera SEE?",
 				"Answers" : [
-					{"Answer" : "Product Owner", "Score" : 0},
-					{"Answer" : "Chapter Lead", "Score" : 0},
-					{"Answer" : "Technical Lead", "Score" : 0},
-					{"Answer" : "Team Member", "Score" : 0},
-					{"Answer" : "Sponsor", "Score" : 0}
+					{"Answer" : "Si", "Score" : 0},
+					{"Answer" : "No", "Score" : 0}
 				]
 			}
 		]
@@ -35,42 +39,33 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "1.¿Su proceso de implementación / despliegue está automatizado?",
+				"QuestionText" : "1. ¿Conoce y usa las estrategias de despliegue que permiten no tener interrupción en la aplicación al momento de pasar a producción un nuevo release?",
 				"Answers" : [
-					{"Answer" : "No está automatizado", "Score" : 0},
-					{"Answer" : "Parcialmente automatizado", "Score" : 0.25},
-					{"Answer" : "Completamente automatizado sin rollback", "Score" : 0.5},
-					{"Answer" : "Completamente automatizado e incluye el proceso manual de rollback", "Score" : 0.75},
-					{"Answer" : "Completamente automatizado e incluye el proceso automático de rollback", "Score" : 0.1}
+					{"Answer" : "No conozco y tampoco uso estrategias de despliegue", "Score" : 0},
+					{"Answer" : "Si conozco, pero no uso estrategias de despliegue,", "Score" : 2},
+					{"Answer" : "Si conozco, uso estrategias como Canary o Blue / Green, etc.", "Score" : 5}
 					]
 			},	
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "2.¿Puede implementar cambios sin una ventana de mantenimiento ya que no se requiere una interrupción?",
+				"QuestionText" : "2. La estrategia Canary implica:",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.5},
-					{"Answer" : "En algunas ocasiones se genera indisponibilidad", "Score" : 0.25},
-					{"Answer" : "No, Siempre necesitamos ventana de mantenimiento", "Score" : 0}
+					{"Answer" : "Liberar un nuevo feature para que todos los usuarios prueben el software", "Score" : 0},
+					{"Answer" : "Liberar un nuevo feature para que un grupo seleccionado de usuarios prueben el software", "Score" : 3},
+					{"Answer" : "Liberar un nuevo feature para que solo el equipo de QA pruebe el software", "Score" : 0}
 					]
 			},		
 
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "3.¿Utiliza las estrategias de despliegue como Canary o Blue / Green, etc. para reducir el tiempo de inactividad y el riesgo?",
+				"QuestionText" : "3. Actualmente, en el banco la reversión de cambios en producción implica:",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
-					{"Answer" : "No", "Score" : 0}
-					]
-			},
-			{
-				"Type" : "Option",
-				
-				"QuestionText" : "4.¿Usa Features Flags para minimizar el riego de los despliegues?",
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Solicitar al AgileOps que ejecute una serie de comandos en el servidor", "Score" : 0},
+					{"Answer" : "Solicitar al AgileOps que ejecute un script en el servidor", "Score" : 1},
+					{"Answer" : "Solicitar al AgileOps que ejecute un job de reversión", "Score" : 3},
+					{"Answer" : "La reversión forma parte del pipeline de despliegue y el rollback es automático en caso alguna prueba falle", "Score" : 5}
 					]
 			}
 		]
@@ -81,44 +76,51 @@
 		"Questions" : [
 			{
 				"Type" : "Option",
-				"QuestionText" : "5. La infraestructura de la aplicación es:",
+				"QuestionText" : "4. ¿Conoce cuál es la base para tener sistemas confiables y resilientes?",
 				"Answers" : [
-						{"Answer" : "Cloud", "Score" : 0.75},
-						{"Answer" : "Híbrido", "Score" : 0.5},
-						{"Answer" : "OnPremise", "Score" : 0.25}
+						{"Answer" : "La base es el Monitoreo", "Score" : 3},
+						{"Answer" : "La base es el método Postmortem", "Score" : 0},
+						{"Answer" : "La base es la respuesta a incidentes", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "6.¿Calcula el rendimiento del servicio para que su escalado automático opere de una manera óptima?",
+				"QuestionText" : "5. Well Arquitected Framework es un conjunto de principios que se pueden usar para mejorar la calidad de la arquitectura de la aplicación",
 				"Answers" : [
-					{"Answer" : "Si y es automático", "Score" : 0.75},
-					{"Answer" : "Si, pero es manual", "Score" : 0.25},
-					{"Answer" : "No", "Score" : 0}
-					]
-			},
-			{
-				"Type" : "Option",
-				
-				"QuestionText" : "7.¿Chaos Engineering es una práctica que hemos implementado en nuestra aplicación?",
-				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Verdadero", "Score" : 3},
+					{"Answer" : "Falso", "Score" : 0}
 					]
 			},
 			{
 				"Type" : "Checkbox",
 				
-				"QuestionText" : "8.En la arquitectura de su aplicación, ¿ha implementado alguna forma de tolerancia a fallos? ",
+				"QuestionText" : "6. ¿Conoce cuáles son los beneficios de las pruebas de rendimiento?",
 				"Answers" : [
-					{"Answer" : "No", "Score" : 0},
-					{"Answer" : "HA y/o LB  para BD", "Score" : 0.25},
-					{"Answer" : "HA y/o LB  para Backend (incluye Middleware)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Componentes de Red (DNS, Proxy, AD, Firewall)", "Score" : 0.5},
-					{"Answer" : "HA y/o LB  para Frontend", "Score" : 0.75},
-					{"Answer" : "Toda la aplicación con replicas por Zona o Región, sin afectar a los clientes o usuarios", "Score" : 1}
+					{"Answer" : "Cumplir con el Happy path para los usuarios", "Score" : 0},
+					{"Answer" : "Mejorar la calidad del código y la funcionalidad del software", "Score" : 2},
+					{"Answer" : "Identificar los problemas", "Score" : 0},
+					{"Answer" : "Mide la velocidad, la estabilidad y la precisión del software", "Score" : 2}
+				]
+			},
+			{
+				"Type" : "Option",
+				
+				"QuestionText" : "7. ¿Sabe que es Chaos Engineering?",
+				"Answers" : [
+					{"Answer" : "Se trata de introducir fallos en nuestros sistemas para luego observar el comportamiento y aplicar todas las mejoras necesarias para aumentar la disponibilidad", "Score" : 5},
+					{"Answer" : "Disciplina que sirve para atender los incidentes y eliminar rápidamente los fallos", "Score" : 0},
+					{"Answer" : "Nos permite identificar fallos antes de que se conviertan en pérdidas", "Score" : 2}
 					]
+			},
+			{
+				"Type" : "Option",
+
+				"QuestionText" : "8. ¿Conoce sobre tolerancia a fallos en su aplicación?",
+				"Answers" : [
+					{"Answer" : "Se relaciona con mitigar rápidamente los fallos", "Score" : 2},
+					{"Answer" : "Se puede experimentar fallas en los componentes, pero el sistema continúa funcionando correctamente", "Score" : 4}
+				]
 			}
 		]
 	},
@@ -129,52 +131,51 @@
 			{
 				"Type" : "Option",
 				
-				"QuestionText" : "9.El MTTR (Mean Time To Repair) es una métrica de la que el equipo es consciente",
+				"QuestionText" : "9. ¿Sabe cuál es el principal objetivo de la Gestión de Incidentes?",
 				"Answers" : [
-					{"Answer" : "No conocemos sobre esta métrica", "Score" : 0},
-					{"Answer" : "Si y es obtenido manualmente", "Score" : 0.25},
-					{"Answer" : "Si y es obtenido automáticamente", "Score" : 0.75}
+					{"Answer" : "Solucionar el problema lo antes posible", "Score" : 5},
+					{"Answer" : "Reducir el impacto al negocio", "Score" : 1},
+					{"Answer" : "Reducir a cero los incidentes repetidos", "Score" : 3},
+					{"Answer" : "Encontrar la causa raíz", "Score" : 0}
 					]
 			},
 			{
-				"Type" : "Option",
-				"QuestionText" : "10.¿Las personas que responden a los incidentes, ejecutan acciones definidas en un proceso y tienen todas las herramientas necesarias a su disposición para solucionar el incidente?",
+				"Type" : "Checkbox",
+				"QuestionText" : "10. ¿Conoce alguna recomendación para la respuesta a incidentes?",
 				"Answers" : [
-					{"Answer" : "Existe un proceso definido que es ejecutado parcialmente por el equipo, y no existe herramientas para apoyar en la solución", "Score" : 0},
-					{"Answer" : "Existe un proceso definido que contempla toda la documentación necesaria de la aplicación", "Score" : 0.5},
-					{"Answer" : "Existe un proceso definido que contempla documentación, accesos a vistas que ayudan a la rápida identificación de incidentes", "Score" : 0.75},
-					{"Answer" : "Existe un proceso definido que correlaciona automáticamente una incidencia con un equipo, se poseen accesos a documentación y vistas que ayudan a la rápida identificación de incidentes, está disponible para todos los roles", "Score" : 1}
+					{"Answer" : "Documentación mínima disponible", "Score" : 1},
+					{"Answer" : "Informe LRS", "Score" : 0},
+					{"Answer" : "OnCall Management", "Score" : 1},
+					{"Answer" : "Postmortem", "Score" : 1}
 					]
 			},			
 			{
 				"Type" : "Option",
-				"QuestionText" : "11.¿Ha considerado qué paneles con información de monitoreo deben estar fácilmente disponible, accesible y puedan ayudar a analizar alguna anomalía fácilmente de un vistazo?",
+				"QuestionText" : "11. ¿Sabe que es una War Room?",
 				"Answers" : [
-					{"Answer" : "No, no se posee paneles de control/dashboardos de monitoreo", "Score" : 0},
-					{"Answer" : "Si, existen paneles de control básicos (CPU, Ram, Discos)", "Score" : 0.25},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para ciertos roles en el equipo", "Score" : 0.5},
-					{"Answer" : "Si y ha sido definido previamente con los equipos que realizan el monitoreo y es accesible para todos roles en el equipo", "Score" : 0.75},	
-					{"Answer" : "Si y el PO y sus miembros de equipo administran los paneles de forma conveniente dentro de la herramienta de monitoreo", "Score" : 0.1}	
+					{"Answer" : "Es una reunión de urgencia donde se revisan los pases críticos con varios equipos", "Score" : 0},
+					{"Answer" : "Es una reunión de urgencia donde se revisa un incidente para resolverlo rápidamente con varios equipos", "Score" : 3}
 				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "12.De qué forma se realiza la trazabilidad del incidente",
+				"QuestionText" : "12. ¿Sabe de qué trata Selfhealing?",
 				"Answers" : [
-					{"Answer" : "No se realiza trazabilidad", "Score" : 0},
-					{"Answer" : "Registro en ticket de Remedy / Jira", "Score" : 0.25},
-					{"Answer" : "Aplicación de bitácora - Establecer acciones en alguna plataforma", "Score" : 0.75},					
-					{"Answer" : "Aplicación de bitácora - Establecer acciones desde un chatbot", "Score" : 1}					
+					{"Answer" : "Es una curación automática del sistema", "Score" : 2},
+					{"Answer" : "Descubrir errores en su funcionamiento y hacer cambios en sí mismo sin intervención humana", "Score" : 5}
 					]
 			},
 			{
-				"Type" : "Option",
-				"QuestionText" : "¿Ha considerado qué información debe estar fácilmente disponible y mostrarse en sus paneles de control para no proporcionar demasiada información que puede ser difícil de evaluar de un vistazo?",
+				"Type" : "Checkbox",
+				"QuestionText" : "13. ¿Sabe cuáles son los beneficios de implementar Selfhealing?",
 				"Answers" : [
-					{"Answer" : "Si, y ha sido definido previamente con los equipos que realizan el monitoreo de componentes", "Score" : 0.5},
-					{"Answer" : "Existen paneles de control, pero no hubo definiciones especificas para la aplicación", "Score" : 0.25},
-					{"Answer" : " No, no se posee paneles de control", "Score" : 0}					
-					]
+					{"Answer" : "MTTR más rápido", "Score" : 1},
+					{"Answer" : "Reducción del trabajo", "Score" : 1},
+					{"Answer" : "Cero Reversiones", "Score" : 0},
+					{"Answer" : "Disminución del riesgo para el negocio", "Score" : 1},
+					{"Answer" : "Despliegues automatizados", "Score" : 0},
+					{"Answer" : "Flujos de trabajo repetibles y escalables", "Score" : 1}
+				]
 			}
 		]
 	},
@@ -184,27 +185,37 @@
 		"Questions" : [
 			{
 				"Type" : "Option",
-				"QuestionText" : "13.Sólo los incidentes críticos desencadenan una reunión de revisión post incidente",	
+				"QuestionText" : "14. ¿Sabe que es un Postmortem?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.25},
-					{"Answer" : "No se realiza ningún tipo de reunión de revisión", "Score" : 0}
+					{"Answer" : "Es un conjunto de procedimientos para evitar incidentes", "Score" : 0},
+					{"Answer" : "Es un análisis retrospectivo que se realiza después de un incidente grave", "Score" : 3}
 					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "14.Se mantiene una trazabilidad entre incidente y fix aplicado",	
+				"QuestionText" : "15. ¿Sabe que es el RCA?",
 				"Answers" : [
-					{"Answer" : "Si, existe registro del fix y su atención", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Es una serie de preguntas que te ayudan a mitigar los incidentes", "Score" : 0},
+					{"Answer" : "Es un método que te ayuda a determinar la causa raíz de un problema", "Score" : 3}
 					]	
 			},
 			{
-				"Type" : "Option",
-				"QuestionText" : "15.Se utiliza una herramienta tipo IA para aprender de los incidentes ocurridos con anterioridad y que permita mejorar la estabilidad de la aplicación",	
+				"Type" : "Checkbox",
+				"QuestionText" : "16. ¿Puede nombrar los objetivos del Postmortem?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
-					{"Answer" : "No", "Score" : 0}
-					]	
+					{"Answer" : "Ayuda a reducir el impacto o recurrencia de un incidente", "Score" : 2},
+					{"Answer" : "Genera conocimiento a los equipos de QA", "Score" : 0},
+					{"Answer" : "Genera accionables para hacer más resiliente la aplicación", "Score" : 2},
+					{"Answer" : "Optimiza los pases a producción", "Score" : 0}
+				]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "17 ¿Conoce alguna herramienta tipo IA para aprender de los incidentes ocurridos con anterioridad y que permita mejorar la estabilidad de la aplicación?",
+				"Answers" : [
+					{"Answer" : "Dynatrace", "Score" : 5},
+					{"Answer" : "SonarQ", "Score" : 0}
+				]
 			}
 		]
 	}
@@ -216,39 +227,46 @@
 		"Questions" : [
 			{
 				"Type" : "Checkbox",
-				"QuestionText" : "16.Las herramientas de monitoreo nos proveen data histórica e indicadores que nos permiten conocer el comportamiento de la aplicación, p Ej.  Disponibilidad de la aplicación de los últimos 3 meses. ",
+				"QuestionText" : "18. ¿Conoce sobre los indicadores de nivel de servicio?",
 				"Answers" : [
-					{"Answer" : "Disponibilidad", "Score" : 0.25},
-					{"Answer" : "Errores", "Score" : 0.5},
-					{"Answer" : "Peticiones (requests) realizadas con éxito", "Score" : 0.5},
-					{"Answer" : "No existe data historica", "Score" : 0}
+					{"Answer" : "Son 3: SLI, SLO y SLA", "Score" : 1},
+					{"Answer" : "Estos indicadores nos permite mejorar la experiencia del cliente final", "Score" : 1},
+					{"Answer" : "El SLI nos permite medir el MTTR", "Score" : 0},
+					{"Answer" : "El SLO es el número que queremos ver reflejado en nuestros SLI", "Score" : 1},
+					{"Answer" : "El SLA es el acuerdo entre los colaboradores de la empresa y el dueño para comprometernos a cumplir las iniciativas", "Score" : 0}
 					]					
 			},
 			{
-				"Type" : "Option",
-				"QuestionText" : "17.El freeze (Cuando no se permiten pases a producción) de una aplicación es determinado automáticamente",
+				"Type" : "Checkbox",
+				"QuestionText" : "19. ¿Conoce sobre el Error Budget?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 1},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Es la cantidad de errores que estamos dispuestos a aceptar", "Score" : 1},
+					{"Answer" : "El error budget siempre prioriza la estabilidad", "Score" : 0},
+					{"Answer" : "Si el producto se está ejecutando actualmente sin problemas, con pocos o ningún error, pueden lanzar lo que quieran, cuando lo deseen", "Score" : 1},
+					{"Answer" : "100 - SLO = Error Budget", "Score" : 1},
+					{"Answer" : "Si han cumplido o excedido el presupuesto de errores y están operando en o por debajo del SLA definido, todos los lanzamientos se congelan", "Score" : 1}
 					]		
 			},	
 			{
-				"Type" : "Option",
-				"QuestionText" : "18.El monitoreo actual de la aplicación posee alertas de advertencia que correlaciona ",
+				"Type" : "Checkbox",
+				"QuestionText" : "20. ¿Qué tipo de data histórica e indicadores nos permiten conocer el comportamiento de la aplicación?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.75},
-					{"Answer" : "No", "Score" : 0}
-					]
+					{"Answer" : "Disponibilidad de la aplicación de los últimos 3 meses", "Score" : 1},
+					{"Answer" : "Tasa de Errores", "Score" : 1},
+					{"Answer" : "Latencia", "Score" : 1},
+					{"Answer" : "Peticiones (requests) realizadas con éxito", "Score" : 1},
+					{"Answer" : "Ninguna", "Score" : 0}
+				]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "19.Respecto de los SLI (Service Level Indicator) y SLO (Service Level Objetive) para mi aplicación:",
+				"QuestionText" : "21. ¿Actualmente usa SLI y SLO en su aplicación?",
 				"Answers" : [
-					{"Answer" : "No los conocemos", "Score" : 0},
-					{"Answer" : "Conozco la teoría, pero no los usamos", "Score" : 0.25},
-					{"Answer" : "Estamos midiendo algunos SLI (Disponibilidad, latencia, errores )", "Score" : 0.5},
-					{"Answer" : "Estamos midiendo SLI (Disponibilidad, latencia, errores, APDEX) y tenemos seteados algunos SLO", "Score" : 0.75},
-					{"Answer" : "Ambos están definidos y medidos para todos los servicios", "Score" : 1}
+					{"Answer" : "No", "Score" : 0},
+					{"Answer" : "Conozco la teoría, pero no los usamos", "Score" : 2},
+					{"Answer" : "Estamos midiendo algunos SLI (Disponibilidad, latencia, errores )", "Score" : 3},
+					{"Answer" : "Estamos midiendo SLI (Disponibilidad, latencia, errores, APDEX) y tenemos seteados algunos SLO", "Score" : 4},
+					{"Answer" : "Ambos están definidos y medidos para todos los servicios", "Score" : 5}
 				]
 			}
 		]
@@ -259,55 +277,52 @@
 		"SpiderPos" : 6,
 		"Questions" : [
 			{
-				"Type" : "Checkbox",
-				"QuestionText" : "20.Los equipos de desarrollo tienen accesos a las herramientas de monitoreo para:",
+				"Type" : "Option",
+				"QuestionText" : "22. ¿Sabes cuál es la diferencia entre Observabilidad y Monitoreo?",
 				"Answers" : [
-					{"Answer" : "Solo ver los paneles de control y dashboards, que alguien más ha creado", "Score" : 0},
-					{"Answer" : "Crear algunos Paneles y Dashboards", "Score" : 0.5},
-					{"Answer" : "Crear todos sus Paneles y Dashboards", "Score" : 0.75},
-					{"Answer" : "Crear todos sus Paneles y Dashboards. Configurar sus alertas y SLIs/SLOs", "Score" : 1}
-					]	
-			},
-			{
-				"Type" : "Checkbox",
-				"QuestionText" : "21.El monitoreo de mi aplicación comprende lo siguiente: ",
-				"Answers": [
-					{"Answer" : "Monitoreo de CPU, Memoria y capacidad de disco", "Score" : 0.25},
-					{"Answer" : "Las métricas con tendencia ascendente o descendente son visibles y se alertan cuando son críticas", "Score" : 0.5},
-					{"Answer" : "Herramientas implementadas para APM (Application Performance Monitoring)", "Score" : 0.5},
-					{"Answer" : "Browser Analytics & Real User Monitoring), ", "Score" : 0.75},
-					{"Answer" : "Synthetic Transaction Monitoring: pruebas artificiales automatizadas implementadas para medir el rendimiento y satisfacción", "Score" : 1}
-				]
+					{"Answer" : "La Observabilidad permite conocer el por qué de un mal funcionamiento en el sistema, a diferencia del Monitoreo, que solo permite detectar dónde están las fallas", "Score" : 3},
+					{"Answer" : "Monitoreo es visualizar métricas en un Dashboard y Observabilidad es evaluar las métricas para sacar conclusiones", "Score" : 1},
+					{"Answer" : "La Observabilidad es analizar las métricas para ver si el sistema funciona correctamente y Monitoreo es la capacidad de entender qué está pasando y que hacer", "Score" : 0}
+					]
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "22.Cuáles son las características del registro de logs en su aplicación:",
+				"QuestionText" : "23. ¿Conoce cuáles son las 4 métricas más importantes?",
 				"Answers" : [
-					{"Answer" : "Logs de eventos sin un esquema de criticidad, no proporciona un diagnóstico rápido", "Score" : 0},
-					{"Answer" : "Logs de eventos con largos periodos de retención para auditorias, proporciona un diagnostico moderado", "Score" : 0.25},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro con niveles de criticidad (DEBUG, INFO, WARNING, ERROR, CRITICAL)", "Score" : 0.5},
-					{"Answer" : "Logs de eventos con un esquema detallado de registro y centralizado (Kibana, ElasticSearch,Logstash)", "Score" : 0.75},	
-					{"Answer" : "Logs de eventos para explotación de data a través de sistemas de aprendizaje automático", "Score" : 1}
+					{"Answer" : "Tráfico, Rendimiento, Latencia y Error", "Score" : 0},
+					{"Answer" : "Saturación, Tráfico, Error y Memoria", "Score" : 0},
+					{"Answer" : "Error, Saturación, Tráfico y Latencia", "Score" : 3},
+					{"Answer" : "Rendimiento, Latencia, Tráfico y Error", "Score" : 0}
 				]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "23.¿Utiliza la supervisión proactiva de las bases de datos para señalar problemas antes de que afecten a un servicio? Ejemplo: obtengo información sobre querys o planes de ejecución de bajo rendimiento",
+				"QuestionText" : "24. ¿Sabe cuál corresponde a un beneficio de Monitoreo Proactivo?",
 				"Answers" : [
-					{"Answer" : "Si", "Score" : 0.25},
-					{"Answer" : "No", "Score" : 0}
+					{"Answer" : "Reducir el MTTR", "Score" : 5},
+					{"Answer" : "Mejorar los SLI", "Score" : 0},
+					{"Answer" : "Reducir el MTTZ", "Score" : 0},
+					{"Answer" : "Elaborar el Postmortem", "Score" : 0}
+					]
+			},
+			{
+				"Type" : "Option",
+				"QuestionText" : "25. La puntuación APDEX se usa para medir la satisfacción del usuario con respecto al rendimiento de una aplicación",
+				"Answers" : [
+					{"Answer" : "Verdadero", "Score" : 5},
+					{"Answer" : "Falso", "Score" : 0}
 					]	
 			},
 			{
 				"Type" : "Option",
-				"QuestionText" : "24.El tiempo de detección de un incidente (MTTD)  desde que se alerta el incidente es en promedio",
+				"QuestionText" : "26. ¿Qué comprende tener la aplicación monitoreada?",
 				"Answers" : [
-					{"Answer" : "5 min", "Score" : 1},
-					{"Answer" : "20 - 35 min", "Score" : 0.5},
-					{"Answer" : "1 hr", "Score" : 0.25},
-					{"Answer" : "3 hr", "Score" : 0},
-					{"Answer" : "No tenemos registro del indicador", "Score" : 0}
-					]	
+					{"Answer" : "Es tener el monitoreo de CPU, Memoria y capacidad de disco", "Score" : 1},
+					{"Answer" : "Es tener métricas  con tendencia ascendente o descendente, visibles y alertas cuando son críticas", "Score" : 2},
+					{"Answer" : "Es tener herramientas implementadas para APM (Application Performance Monitoring)", "Score" : 3},
+					{"Answer" : "Es tener Browser Analytics & Real User Monitoring)", "Score" : 4},
+					{"Answer" : "Es tener Synthetic Transaction Monitoring: pruebas artificiales automatizadas implementadas para medir el rendimiento y satisfacción (Monitoreo e2e)", "Score" : 5}
+				]
 			}
 		]
 	}

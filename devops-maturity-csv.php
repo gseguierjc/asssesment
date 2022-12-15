@@ -56,10 +56,11 @@
 				// Remove trailing new lines
 				$possibleAnswers = substr($possibleAnswers, 0, -1);
 				$answers = substr($answers, 0, -1);
-				// echo $answers;
-				$row = array(	
-								strtoupper($_SESSION['codeApp']),
-								"",
+				//  echo $answers;
+
+				$row = array(
+                                strtolower($_SESSION['registrationCode']),
+                                $_SESSION['mail'],
 								$section['SectionName'],
 								$subCategory,
 								$question['QuestionText'],
@@ -69,8 +70,8 @@
 								$survey->GetQuestionScore($question)
 								);
 
-								$servername = "surveysredatabase.mysql.database.azure.com";
-								$username = "adminsre@surveysredatabase";
+								$servername = "survey-sre-db-dev.mysql.database.azure.com";
+								$username = "adminsre@survey-sre-db-dev";
 								$password = "Blameless#124";
 								$dbname = "survey";
 								// Create connection
@@ -80,9 +81,13 @@
 								if ($conn->connect_error) {
 								die("Connection failed: " . $conn->connect_error);
 								}
+
+                                // Variable fecha
+                                $datum = new DateTime();
+                                $startTime = $datum->format('Y-m-d');
 								
-								$sql = "INSERT INTO assessment (codigoAplicacion,codigoRol,sectionName,question,possibleAnswers,maxScore,answer,score)
-								VALUES ('{$row[0]}','{$row[1]}','{$row[2]}','{$row[4]}','{$row[5]}','{$row[6]}','{$row[7]}','{$row[8]}')";
+								$sql = "INSERT INTO assessment (registrationCode,mail,sectionName,question,possibleAnswers,maxScore,answer,score,Detalis,timestamp)
+								VALUES ('{$row[0]}','{$row[1]}','{$row[2]}','{$row[4]}','{$row[5]}','{$row[6]}','{$row[7]}','{$row[8]}', NULL, '{$startTime}')";
 								
 								if ($conn->query($sql) === TRUE) {
 								// echo "New record created successfully";

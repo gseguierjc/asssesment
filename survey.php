@@ -195,12 +195,26 @@ Class Survey
 				if ( $question['Type'] == 'Text' )
 				{
 					if (isset($_POST['S1-Q2-A1'])) { 
-						$_SESSION['codeApp'] = $_POST['S1-Q2-A1'];
-					} 
+						$_SESSION['registrationCode'] = $_POST['S1-Q2-A1'];
+					}
+
+                    if (isset($_POST['S1-Q3-A1'])) {
+                        $_SESSION['mail'] = $_POST['S1-Q3-A1'];
+                    }
+
 				}	
 				
 				if ( $question['Type'] == 'Option' )
 				{
+
+//                    if (isset($_POST['S1-Q4'])) {
+//                        if ($_POST['S1-Q4'] == 'S1-Q4-A1') {
+//                            $_SESSION['acelera'] = 'Si';
+//                        } else {
+//                            $_SESSION['acelera'] = 'No';
+//                        }
+//                    }
+
 					if ( isset($_POST[$question['ID']]) )
 					{
 						foreach ($question['Answers'] as $answerIndex=>&$answer)
